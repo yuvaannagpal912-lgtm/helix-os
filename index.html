@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helix OS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a;
+            color: #00ff99;
+            font-family: 'Courier New', monospace;
+        }
+        nav {
+            background: #111;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00ff99;
+            position: sticky;
+            top: 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff99;
+            text-shadow: 0 0 10px #00ff99;
+        }
+        nav a {
+            color: #00ff99;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #fff; }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0a0a, #001a0d);
+        }
+        .hero h1 {
+            font-size: 72px;
+            color: #00ff99;
+            text-shadow: 0 0 30px #00ff99;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+        .btn {
+            background: transparent;
+            border: 2px solid #00ff99;
+            color: #00ff99;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #00ff99;
+            color: #000;
+        }
+        .versions {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .versions h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #00ff99;
+        }
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .version-card {
+            background: #111;
+            border: 1px solid #00ff99;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        .version-card:hover {
+            background: #001a0d;
+            box-shadow: 0 0 20px #00ff9944;
+            transform: translateY(-5px);
+        }
+        .version-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ff99;
+        }
+        .version-card .tag {
+            background: #00ff9922;
+            border: 1px solid #00ff99;
+            color: #00ff99;
+            padding: 3px 10px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .version-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .version-card ul {
+            list-style: none;
+            color: #aaa;
+            font-size: 13px;
+        }
+        .version-card ul li::before {
+            content: "✓ ";
+            color: #00ff99;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: transparent;
+            border: 1px solid #00ff99;
+            color: #00ff99;
+            padding: 8px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background: #00ff99;
+            color: #000;
+        }
+        .terminal {
+            background: #111;
+            border: 1px solid #00ff99;
+            padding: 30px;
+            margin: 60px auto;
+            max-width: 800px;
+        }
+        .terminal h3 {
+            color: #00ff99;
+            margin-bottom: 20px;
+        }
+        .terminal pre {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .terminal span { color: #00ff99; }
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #00ff9933;
+            color: #555;
+            font-size: 13px;
+        }
+        footer span { color: #00ff99; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">⬡ Helix OS</div>
+    <div>
+        <a href="#versions">Versions</a>
+        <a href="#download">Download</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Helix OS</h1>
+    <p>A hobby operating system built from scratch in C and Assembly</p>
+    <p style="color:#555; font-size:14px;">By Yuvaan</p>
+    <br>
+    <a href="#download" class="btn">⬇ Download</a>
+    <a href="#versions" class="btn">📋 Versions</a>
+</section>
+
+<section class="versions" id="versions">
+    <h2>Version History</h2>
+    <div class="version-grid">
+
+        <div class="version-card">
+            <h3>Helix v0.1</h3>
+            <span class="tag">Bootloader</span>
+            <p>The first version of Helix OS. A simple bootloader that displays "Helix" on screen.</p>
+            <ul>
+                <li>x86 Assembly bootloader</li>
+                <li>Displays Helix on boot</li>
+                <li>512 byte boot sector</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.1</a>
+        </div>
+
+        <div class="version-card">
+            <h3>Helix v0.2</h3>
+            <span class="tag">C Kernel</span>
+            <p>First C kernel with GRUB bootloader and VGA text mode display.</p>
+            <ul>
+                <li>C kernel</li>
+                <li>GRUB bootloader</li>
+                <li>VGA text mode</li>
+                <li>ASCII art logo</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.2</a>
+        </div>
+
+        <div class="version-card">
+            <h3>Helix v0.3</h3>
+            <span class="tag">Shell</span>
+            <p>Added a working shell with colors, keyboard input and basic commands.</p>
+            <ul>
+                <li>Colored text output</li>
+                <li>Keyboard input</li>
+                <li>Shell with commands</li>
+                <li>Caps Lock and Shift</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.3</a>
+        </div>
+
+        <div class="version-card">
+            <h3>Helix v0.4</h3>
+            <span class="tag">Mouse + Filesystem</span>
+            <p>Added mouse support, file system and more shell commands.</p>
+            <ul>
+                <li>Mouse cursor</li>
+                <li>File system</li>
+                <li>create, read, write, delete</li>
+                <li>Calculator and game</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.4</a>
+        </div>
+
+        <div class="version-card">
+            <h3>Helix v0.5</h3>
+            <span class="tag">Apps + RAM</span>
+            <p>Real RAM detection, more apps and improved shell.</p>
+            <ul>
+                <li>Real RAM detection</li>
+                <li>Calculator app</li>
+                <li>Number guessing game</li>
+                <li>File write and delete</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.5</a>
+        </div>
+
+        <div class="version-card">
+            <h3>Helix v0.6</h3>
+            <span class="tag">GUI ← Latest</span>
+            <p>Full GUI with desktop, icons, windows and keyboard shortcuts.</p>
+            <ul>
+                <li>Blue desktop with icons</li>
+                <li>Working windows</li>
+                <li>Calculator window</li>
+                <li>Number guessing game</li>
+                <li>File Manager window</li>
+                <li>About window</li>
+            </ul>
+            <a href="#" class="download-btn">⬇ Download v0.6</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="terminal" id="download">
+    <h3>$ How to run Helix OS</h3>
+    <pre>
+<span># Install QEMU</span>
+sudo apt install qemu-system-x86
+
+<span># Download Helix OS ISO</span>
+wget https://helix-os.com/download/helix.iso
+
+<span># Run Helix OS</span>
+qemu-system-i386 -cdrom helix.iso -m 512
+    </pre>
+</section>
+
+<section style="text-align:center; padding: 60px 40px;" id="about">
+    <h2 style="color:#00ff99; margin-bottom:20px;">About Helix OS</h2>
+    <p style="color:#aaa; max-width:600px; margin:0 auto; line-height:1.8;">
+        Helix OS is a hobby operating system built from scratch by Yuvaan.
+        It is written in C and x86 Assembly and runs on QEMU.
+        The goal is to build a Windows-like OS from the ground up,
+        learning every aspect of operating system development along the way.
+    </p>
+</section>
+
+<footer>
+    <p>Made with ❤️ by <span>Yuvaan</span> — Helix OS © 2026</p>
+</footer>
+
+</body>
+</html>
